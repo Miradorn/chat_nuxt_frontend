@@ -1,0 +1,52 @@
+{
+  "name": "frontend_nuxt",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Alexander Schramm <alex@schram.me>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "dev-debug": "node --debug node_modules/.bin/nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@absinthe/socket-apollo-link": "^0.1.11",
+    "@nuxtjs/apollo": "^3.0.4",
+    "vue-apollo": "^3.0.0-beta.2",
+    "apollo-link-http": "^1.5.1",
+    "apollo-link-ws": "^1.0.7",
+    "apollo-utilities": "^1.0.8",
+    "graphql": "^0.13.1",
+    "graphql-tag": "^2.8.0",
+    "nuxt": "^1.0.0",
+    "subscriptions-transport-ws": "^0.9.6",
+    "vue": "^2.5.13",
+    "vuetify": "^1.0.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.18.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.2.2",
+    "node-sass": "^4.7.2",
+    "prettier": "^1.10.2",
+    "pug": "^2.0.0-rc.4",
+    "sass-loader": "^6.0.6",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "webpack": "^3.11.0"
+  }
+}

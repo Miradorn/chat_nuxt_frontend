@@ -1,0 +1,6 @@
+subscription userJoined {
+  userJoined(channel: "all") {
+    id
+    name
+  }
+}

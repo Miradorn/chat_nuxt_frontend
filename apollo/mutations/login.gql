@@ -1,0 +1,5 @@
+mutation ($name: String!) {
+  login(name: $name) {
+    name
+  }
+}
