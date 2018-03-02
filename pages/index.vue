@@ -1,37 +1,45 @@
 <template lang="pug">
-v-list
-  v-list-tile(router nuxt v-for='user in users' :key='user.id' :to="`user/${user.id}`")
-    v-list-tile-title {{ user.name }}
+v-form(v-model='valid' @submit.prevent="submit")
+  v-text-field(
+    label='username'
+    v-model='username'
+    :rules='usernameRules'
+    required)
+
+  v-btn(
+    type='submit'
+    :disabled='!valid') Login
 </template>
 <script>
-import users from '~/apollo/queries/users'
-import userJoined from '~/apollo/subscriptions/userJoined'
+import login from '~/apollo/mutations/login'
+import { mapMutations } from 'vuex'
 
 export default {
-  data () {
-    return {
-      users: []
-    }
-  },
-  apollo: {
-    users: {
-      query: users,
-      prefetch: true,
-      subscribeToMore: {
-        document: userJoined,
-        updateQuery: (previousResult, { subscriptionData }) => {
-          return {
-            users: [
-              ...previousResult.users,
-              subscriptionData.data.userJoined
-            ]
-          }
-        }
-      }
-    }
-  },
+  data: () => ({
+    valid: true,
+    username: '',
+    usernameRules: [
+      v => !!v || 'Name is required'
+    ]
+  }),
   head: {
-    title: 'Users with Apollo'
+    title: 'Chat App'
+  },
+  methods: {
+    submit () {
+      this.$apollo.mutate({
+        mutation: login,
+        variables: {
+          name: this.username
+        }
+      }).then(({data}) => {
+        this.setUser(data.login.id)
+        this.$router.push('chat')
+      })
+    },
+    ...mapMutations([
+      'setUser'
+    ])
   }
 }
 </script>

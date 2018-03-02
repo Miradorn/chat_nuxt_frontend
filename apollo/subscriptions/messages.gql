@@ -1,0 +1,6 @@
+subscription messages($recipient: ID!) {
+  messages(recipient: $recipient) {
+    payload
+    sender { id name }
+  }
+}

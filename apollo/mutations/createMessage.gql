@@ -1,0 +1,7 @@
+mutation createMessage($recipient: ID!, $payload: String!, $sender: ID!) {
+  createMessage(recipient: $recipient, payload: $payload, sender: $sender) {
+    payload
+    sender
+    recipient
+  }
+}

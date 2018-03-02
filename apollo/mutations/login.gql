@@ -1,5 +1,6 @@
-mutation ($name: String!) {
+mutation login($name: String!) {
   login(name: $name) {
+    id
     name
   }
 }
